@@ -1,0 +1,8 @@
+{% extends '/templates/base.html.twig' %}
+{% block body %}
+    {{ message }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('japanMap') }}
+{% endblock %}
