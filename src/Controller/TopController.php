@@ -13,6 +13,6 @@ class TopController extends AbstractController
   public function index()
   {
     $message = 'hello world';
-    return $this->render('top/top.html.twig', ['message' => $message]);
+    return $this->render('top/index.html.twig', ['message' => $message]);
   }
 }

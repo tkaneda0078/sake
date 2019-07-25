@@ -9,4 +9,3 @@ require('../css/app.css');
 import $ from 'jquery';
 
 global.$ = global.jQuery = $;
-
