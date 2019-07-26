@@ -1,30 +1,31 @@
-var Encore = require('@symfony/webpack-encore');
+var Encore = require('@symfony/webpack-encore')
 
 if (!Encore.isRuntimeEnvironmentConfigured()) {
-    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
+  Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev')
 }
 
 Encore
-    .setOutputPath('public/build/')
-    .setPublicPath('/build')
-    .addEntry('app', './assets/js/app.js')
-    .addEntry('japanMap', './assets/js/jquery.japan-map.js')
+  .setOutputPath('public/build/')
+  .setPublicPath('/build')
+  .addEntry('app', './assets/js/app.js')
+  .addEntry('jqueryJapanMap', './assets/js/jquery.japan-map.js')
+  .addEntry('japanMap', './assets/js/japan-map.js')
 
-    .splitEntryChunks()
+  .splitEntryChunks()
 
-    .enableSingleRuntimeChunk()
+  .enableSingleRuntimeChunk()
 
-    .cleanupOutputBeforeBuild()
-    .enableBuildNotifications()
-    .enableSourceMaps(!Encore.isProduction())
-    .enableVersioning(Encore.isProduction())
+  .cleanupOutputBeforeBuild()
+  .enableBuildNotifications()
+  .enableSourceMaps(!Encore.isProduction())
+  .enableVersioning(Encore.isProduction())
 
-    .configureBabel(() => {}, {
-        useBuiltIns: 'usage',
-        corejs: 3
-    })
+  .configureBabel(() => {}, {
+    useBuiltIns: 'usage',
+    corejs: 3
+  })
 
-    .autoProvidejQuery()
-;
+  .autoProvidejQuery()
 
-module.exports = Encore.getWebpackConfig();
+
+module.exports = Encore.getWebpackConfig()
