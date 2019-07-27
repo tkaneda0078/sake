@@ -1,7 +1,11 @@
 {% extends '/templates/base.html.twig' %}
+
 {% block body %}
-    <div id="japanMap"></div>
+    <div class="content">
+        <div id="japanMap"></div>
+    </div>
 {% endblock %}
+
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('jqueryJapanMap') }}
