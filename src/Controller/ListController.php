@@ -15,6 +15,6 @@ class ListController extends AbstractController
   public function index(Request $request)
   {
     $prefCode = $request->query->get('pref-code');
-    return $this->render('list/index.html.twig', ['controller_name' => 'ListController',]);
+    return $this->render('List/index.html.twig', ['controller_name' => 'ListController',]);
   }
 }
