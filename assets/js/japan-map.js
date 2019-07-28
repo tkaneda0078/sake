@@ -2,6 +2,7 @@
 
 $(function () {
 
+  const redirectUrl         = window.location.origin + '/list?pref-code=';
   const basebackgroundColor = '#FFFFFB';
 
   // todo: 色調整する
@@ -88,7 +89,7 @@ $(function () {
     movesIslands: true,                   // 南西諸島の表示位置
     fontSize: 11,
     onSelect: function (data) {
-      // todo: 画面遷移
+      $(location).attr('href', redirectUrl + data.code)
     },
     onHover: function (data) {
       $('#area').html(data.area.name + ' ' + data.name)
