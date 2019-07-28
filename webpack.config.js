@@ -8,6 +8,8 @@ Encore
   .setOutputPath('public/build/')
   .setPublicPath('/build')
   .addEntry('app', './assets/js/app.js')
+  .addEntry('uikit', './assets/js/uikit.min.js')
+  .addEntry('uikitIcons', './assets/js/uikit-icons.min.js')
   .addEntry('jqueryJapanMap', './assets/js/jquery.japan-map.js')
   .addEntry('japanMap', './assets/js/japan-map.js')
 
