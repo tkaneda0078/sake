@@ -1,11 +1,16 @@
 {% extends '/templates/base.html.twig' %}
 
 {% block body %}
-    <div class="content">
-        <ul class="uk-list uk-list-divider">
-            <li>List item 1</li>
-            <li>List item 2</li>
-            <li>List item 3</li>
-        </ul>
+    <div class="uk-grid">
+        <div class="uk-width-1-3">
+            sidebar
+        </div>
+        <div class="content uk-width-2-3">
+            <ul class="uk-list uk-list-divider">
+                {% for sake in sakeList %}
+                    <li>{{ sake }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock %}
