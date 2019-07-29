@@ -6,9 +6,14 @@
             sidebar
         </div>
         <div class="content uk-width-2-3">
-            <ul class="uk-list uk-list-divider">
+            <ul class="uk-list">
                 {% for sake in sakeList %}
-                    <li>{{ sake }}</li>
+                    <li class="item-box uk-margin-medium">
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <a href="#"></a>
+                            <p>{{ sake }}</p>
+                        </div>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
