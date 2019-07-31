@@ -12,4 +12,13 @@ class PrefectureRepository extends ServiceEntityRepository
   {
     parent::__construct($registry, Prefecture::class);
   }
+
+  /**
+   * @param int $prefCode
+   * @return Prefecture
+   */
+  public function findById(int $prefCode): Prefecture
+  {
+    return $this->find($prefCode);
+  }
 }
