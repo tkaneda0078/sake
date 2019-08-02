@@ -7,10 +7,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Prefecture;
 
-class ListController extends AbstractController
+class CollectionController extends AbstractController
 {
   /**
-   * @Route("/list", name="list")
+   * @Route("/collection", name="collection")
    * @todo presenterとviewmodel作成
    */
   public function index(Request $request)
@@ -23,11 +23,11 @@ class ListController extends AbstractController
     // todo: DBから酒情報を取得する
 
     $viewData = [
-        'prefName'   => $prefecture->getName(),
-        'prefEnName' => $prefecture->getEnName(),
-        'sakeList'   => ['item1', 'item2', 'item3']
+        'prefName'        => $prefecture->getName(),
+        'prefEnName'      => $prefecture->getEnName(),
+        'sakeCollections' => ['item1', 'item2', 'item3']
     ];
 
-    return $this->render('List/index.html.twig', $viewData);
+    return $this->render('Collection/index.html.twig', $viewData);
   }
 }
