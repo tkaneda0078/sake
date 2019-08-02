@@ -10,7 +10,7 @@ use App\Entity\Prefecture;
 class CollectionController extends AbstractController
 {
   /**
-   * @Route("/collection", name="collection")
+   * @Route("/collection", methods={"GET","HEAD"}, name="collection")
    * @todo presenterとviewmodel作成
    */
   public function index(Request $request)
@@ -25,9 +25,20 @@ class CollectionController extends AbstractController
     $viewData = [
         'prefName'        => $prefecture->getName(),
         'prefEnName'      => $prefecture->getEnName(),
-        'sakeCollections' => ['item1', 'item2', 'item3']
+        'sakeCollections' => $prefectureRepository->findAll()
     ];
 
     return $this->render('Collection/index.html.twig', $viewData);
+  }
+
+  /**
+   * @Route("/collection/detail/{id}", methods={"GET","HEAD"}, name="collectionDetail")
+   */
+  public function detail($id)
+  {
+    // todo: 酒の詳細を取得する
+    $viewData = ['sample' => 22222];
+
+    return $this->render('Collection/detail.html.twig', $viewData);
   }
 }

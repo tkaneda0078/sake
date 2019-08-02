@@ -10,8 +10,8 @@
                 {% for collection in sakeCollections %}
                     <li class="item-box uk-margin-medium">
                         <div class="uk-card uk-card-default uk-card-body">
-                            <a href="#"></a>
-                            <p>{{ collection }}</p>
+                            <a href="{{ path('collectionDetail', {'id': collection.id}) }}"></a>
+                            <p>{{ collection.name }}</p>
                         </div>
                     </li>
                 {% endfor %}
