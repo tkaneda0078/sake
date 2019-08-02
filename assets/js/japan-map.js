@@ -2,7 +2,8 @@
 
 $(function () {
 
-  const redirectUrl         = window.location.origin + '/list?pref-code=';
+  // todo: urlを変更する
+  const redirectUrl         = window.location.origin + '/collection?pref-code=';
   const basebackgroundColor = '#FFFFFB';
 
   // todo: 色調整する
