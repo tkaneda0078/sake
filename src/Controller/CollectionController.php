@@ -7,30 +7,24 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Prefecture;
 use App\Entity\Collection;
+use App\Presentation\CollectionIndexPresenter;
 
 class CollectionController extends AbstractController
 {
   /**
    * @Route("/collection", methods={"GET","HEAD"}, name="collection")
-   * @todo presenterとviewmodel作成
    */
   public function index(Request $request)
   {
     $prefectureId = $request->query->get('prefectureId');
 
-    $prefectureRepository = $this->getDoctrine()->getManager()->getRepository(Prefecture::class);
-    $prefecture = $prefectureRepository->findById($prefectureId);
-
-    $collectionRepository = $this->getDoctrine()->getManager()->getRepository(Collection::class);
-    $collections = $collectionRepository->getCollectionByPrefecture($prefectureId);
-
-    $viewData = [
-        'prefName'    => $prefecture->getName(),
-        'prefEnName'  => $prefecture->getEnName(),
-        'collections' => $collections
-    ];
-
-    return $this->render('Collection/index.html.twig', $viewData);
+    return $this->render('Collection/index.html.twig', [
+        'vm' => (new CollectionIndexPresenter)->create(
+            $this->getDoctrine()->getManager()->getRepository(Prefecture::class),
+            $this->getDoctrine()->getManager()->getRepository(Collection::class),
+            $prefectureId
+        )
+    ]);
   }
 
   /**

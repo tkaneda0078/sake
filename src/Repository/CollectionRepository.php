@@ -25,9 +25,9 @@ class CollectionRepository extends ServiceEntityRepository
 
   /**
    * @param int $prefectureId
-   * @return Collection
+   * @return array
    */
-  public function getCollectionByPrefecture(int $prefectureId): Collection
+  public function getCollectionByPrefecture(int $prefectureId): array
   {
     return $this->findBy([
         'prefecture' => $prefectureId

@@ -1,13 +1,15 @@
+{# @var vm \App\Presentation\CollectionIndexViewModel #}
+
 {% extends '/templates/base.html.twig' %}
 
 {% block body %}
     <div class="uk-grid">
         <div class="uk-width-1-3">
-            {{ prefName }} : {{ prefEnName }}
+            {{ vm.prefectureName }} : {{ vm.prefectureEnName }}
         </div>
         <div class="content uk-width-2-3">
             <ul class="uk-list">
-                {% for collection in collections %}
+                {% for collection in vm.collections %}
                     <li class="item-box uk-margin-medium">
                         <div class="uk-card uk-card-default uk-card-body">
                             <a href="{{ path('collectionDetail', {'id': collection.id}) }}"></a>
