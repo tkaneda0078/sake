@@ -7,7 +7,7 @@
         </div>
         <div class="content uk-width-2-3">
             <ul class="uk-list">
-                {% for collection in sakeCollections %}
+                {% for collection in collections %}
                     <li class="item-box uk-margin-medium">
                         <div class="uk-card uk-card-default uk-card-body">
                             <a href="{{ path('collectionDetail', {'id': collection.id}) }}"></a>

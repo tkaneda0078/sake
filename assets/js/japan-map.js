@@ -3,8 +3,8 @@
 $(function () {
 
   // todo: urlを変更する
-  const redirectUrl         = window.location.origin + '/collection?pref-code=';
-  const basebackgroundColor = '#FFFFFB';
+  const redirectUrl         = window.location.origin + '/collection?prefectureId=';
+  const baseBackgroundColor = '#FFFFFB';
 
   // todo: 色調整する
   var areas = [
@@ -83,7 +83,7 @@ $(function () {
   $('#japanMap').japanMap({
     areas: areas,
     width: 900,
-    backgroundColor: basebackgroundColor, // 海域の背景色
+    backgroundColor: baseBackgroundColor, // 海域の背景色
     borderLineWidth: 0.5,
     lineColor: basebackgroundColor,       // 枠線
     showsPrefectureName: false,           // 地図上に各県名を表示

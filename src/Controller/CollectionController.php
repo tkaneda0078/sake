@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Prefecture;
+use App\Entity\Collection;
 
 class CollectionController extends AbstractController
 {
@@ -15,17 +16,18 @@ class CollectionController extends AbstractController
    */
   public function index(Request $request)
   {
-    $prefCode = $request->query->get('pref-code');
+    $prefectureId = $request->query->get('prefectureId');
 
     $prefectureRepository = $this->getDoctrine()->getManager()->getRepository(Prefecture::class);
-    $prefecture = $prefectureRepository->findById($prefCode);
+    $prefecture = $prefectureRepository->findById($prefectureId);
 
-    // todo: DBから酒情報を取得する
+    $collectionRepository = $this->getDoctrine()->getManager()->getRepository(Collection::class);
+    $collections = $collectionRepository->getCollectionByPrefecture($prefectureId);
 
     $viewData = [
-        'prefName'        => $prefecture->getName(),
-        'prefEnName'      => $prefecture->getEnName(),
-        'sakeCollections' => $prefectureRepository->findAll()
+        'prefName'    => $prefecture->getName(),
+        'prefEnName'  => $prefecture->getEnName(),
+        'collections' => $collections
     ];
 
     return $this->render('Collection/index.html.twig', $viewData);
