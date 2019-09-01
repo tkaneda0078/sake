@@ -23,6 +23,12 @@ class Collection
   private $prefecture;
 
   /**
+   * @ORM\OneToMany(targetEntity="Image", mappedBy="Collection")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $image;
+
+  /**
    * @ORM\Column(name="name", type="string", length=255, nullable=false, options={"comment":"名前"})
    */
   private $name;
@@ -95,6 +101,18 @@ class Collection
   public function setPrefecture(Prefecture $prefecture): self
   {
     $this->prefecture = $prefecture;
+
+    return $this;
+  }
+
+  public function getImage(): Image
+  {
+    return $this->image;
+  }
+
+  public function setImage(Image $image): self
+  {
+    $this->image = $image;
 
     return $this;
   }
