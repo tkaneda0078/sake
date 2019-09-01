@@ -28,11 +28,6 @@ class Collection
   private $name;
 
   /**
-   * @ORM\Column(name="ruby", type="string", length=255, nullable=true, options={"default":null, "comment":"ふりがな"})
-   */
-  private $ruby;
-
-  /**
    * @ORM\Column(name="brand", type="string", length=255, nullable=true, options={"default":null, "comment":"銘柄"})
    */
   private $brand;
@@ -48,14 +43,19 @@ class Collection
   private $price;
 
   /**
+   * @ORM\Column(name="capacity", type="string", length=255, nullable=true, options={"default":null, "comment":"容量"})
+   */
+  private $capacity;
+
+  /**
    * @ORM\Column(name="feature", type="string", length=255, nullable=true, options={"default":null, "comment":"特徴"})
    */
   private $feature;
 
   /**
-   * @ORM\Column(name="specific_name", type="string", length=20, nullable=true, options={"default":null, "comment":"日本酒の種類"})
+   * @ORM\Column(name="type", type="string", length=20, nullable=true, options={"default":null, "comment":"日本酒の種類"})
    */
-  private $specificName;
+  private $type;
 
   /**
    * @ORM\Column(name="material_rice", type="string", length=20, nullable=true, options={"default":null, "comment":"原料米"})
@@ -111,18 +111,6 @@ class Collection
     return $this;
   }
 
-  public function getRuby(): ?string
-  {
-    return $this->ruby;
-  }
-
-  public function setRuby(?string $ruby): self
-  {
-    $this->ruby = $ruby;
-
-    return $this;
-  }
-
   public function getBrand(): ?string
   {
     return $this->brand;
@@ -159,6 +147,18 @@ class Collection
     return $this;
   }
 
+  public function getCapacity(): ?string
+  {
+    return $this->capacity;
+  }
+
+  public function seCapacity(?string $capacity): self
+  {
+    $this->capacity = $capacity;
+
+    return $this;
+  }
+
   public function getFeature(): ?string
   {
     return $this->feature;
@@ -171,14 +171,14 @@ class Collection
     return $this;
   }
 
-  public function getSpecificName(): ?string
+  public function getType(): ?string
   {
-    return $this->specificName;
+    return $this->type;
   }
 
-  public function setSpecificName(?string $specificName): self
+  public function setType(?string $type): self
   {
-    $this->specificName = $specificName;
+    $this->type = $type;
 
     return $this;
   }
