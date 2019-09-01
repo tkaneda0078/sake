@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Prefecture;
 use App\Entity\Collection;
 use App\Presentation\CollectionIndexPresenter;
+use App\Presentation\CollectionDetailPresenter;
 
 class CollectionController extends AbstractController
 {
@@ -28,13 +29,16 @@ class CollectionController extends AbstractController
   }
 
   /**
-   * @Route("/collection/detail/{id}", methods={"GET","HEAD"}, name="collectionDetail")
+   * @Route("/collection/detail/{collectionId}", methods={"GET","HEAD"}, name="collectionDetail")
+   * @todo エラーハンドリング htaccece
    */
-  public function detail($id)
+  public function detail($collectionId)
   {
-    // todo: 酒の詳細を取得する
-    $viewData = ['sample' => 22222];
-
-    return $this->render('Collection/detail.html.twig', $viewData);
+    return $this->render('Collection/detail.html.twig', [
+        'vm' => (new CollectionDetailPresenter)->create(
+            $this->getDoctrine()->getManager()->getRepository(Collection::class),
+            $collectionId
+        )
+    ]);
   }
 }
