@@ -17,8 +17,8 @@ class Collection
   private $id;
 
   /**
-   * @ORM\Column(name="prefecture_id", type="integer")
-   * @ORM\ManyToOne(targetEntity="Prefecture", inversedBy="collection")
+   * @ORM\ManyToOne(targetEntity="Prefecture", inversedBy="collections")
+   * @ORM\JoinColumn(nullable=false)
    */
   private $prefecture;
 

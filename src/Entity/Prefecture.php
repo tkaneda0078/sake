@@ -17,6 +17,11 @@ class Prefecture
   private $id;
 
   /**
+   * @ORM\OneToMany(targetEntity="Collection", mappedBy="prefecture")
+   */
+  private $collections;
+
+  /**
    * @ORM\Column(type="string", length=255)
    */
   private $name;
@@ -29,6 +34,18 @@ class Prefecture
   public function getId(): ?int
   {
     return $this->id;
+  }
+
+  public function getCollections(): Collection
+  {
+    return $this->collections;
+  }
+
+  public function setCollections(Collection $collection): self
+  {
+    $this->collections = $collection;
+
+    return $this;
   }
 
   public function getName(): ?string
