@@ -1,5 +1,30 @@
+{# @var vm \App\Presentation\CollectionDetailViewModel #}
+
 {% extends '/templates/base.html.twig' %}
 
 {% block body %}
-    {{ sample }}
+    <div class="uk-text-center uk-grid">
+        <div class="uk-width-1-2">
+            <div class="uk-card uk-card-body">
+                <div class="uk-card uk-card-body uk-margin-top">
+                    <h1 class="uk-card-title">{{ vm.name }}</h1>
+                    <p>価格：</p>
+                    <P>産地：{{ vm.prefecture }}</P>
+                    <p>銘柄：{{ vm.brand }}</p>
+                    <p>酒造：{{ vm.brewing }}</p>
+                    <p>種類：{{ vm.type }}</p>
+                    <p>原料米：{{ vm.materialRice }}</p>
+                    <p>精米歩合：{{ vm.ricePolishingRatio }}</p>
+                    <P>容量：{{ vm.capacity }}</P>
+                </div>
+                <hr class="uk-grid-divider">
+                <div class="uk-card uk-card-body uk-margin-top">
+                    {{ vm.feature }}
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-2">
+            <div class="uk-card uk-card-body">1-2</div>
+        </div>
+    </div>
 {% endblock %}

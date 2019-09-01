@@ -12,11 +12,6 @@ class CollectionDetailViewModel
   /**
    * @var string
    */
-  public $ruby;
-
-  /**
-   * @var string
-   */
   public $brand;
 
   /**
@@ -32,12 +27,17 @@ class CollectionDetailViewModel
   /**
    * @var string
    */
+  public $capacity;
+
+  /**
+   * @var string
+   */
   public $feature;
 
   /**
    * @var string
    */
-  public $specificName;
+  public $type;
 
   /**
    * @var string

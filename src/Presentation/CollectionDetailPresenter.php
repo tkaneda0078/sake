@@ -13,12 +13,12 @@ class CollectionDetailPresenter
     $collection = $collectionRepository->find($collectionId);
 
     $vm->name               = $collection->getName();
-    $vm->ruby               = $collection->getRuby();
     $vm->brand              = $collection->getBrand();
     $vm->brewing            = $collection->getBrewing();
     $vm->price              = $collection->getPrice();
+    $vm->capacity           = $collection->getCapacity();
     $vm->feature            = $collection->getFeature();
-    $vm->specificName       = $collection->getSpecificName();
+    $vm->type               = $collection->getType();
     $vm->materialRice       = $collection->getMaterialRice();
     $vm->ricePolishingRatio = $collection->getRicePolishingRatio();
     $vm->prefecture         = $collection->getPrefecture()->getName();
