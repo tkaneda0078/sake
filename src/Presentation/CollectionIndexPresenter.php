@@ -2,9 +2,9 @@
 
 namespace App\Presentation;
 
-use App\Presentation\CollectionIndexViewModel;
 use App\Repository\PrefectureRepository;
 use App\Repository\CollectionRepository;
+use App\Presentation\CollectionIndexViewModel;
 
 class CollectionIndexPresenter
 {

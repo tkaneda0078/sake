@@ -5,14 +5,14 @@
 {% block body %}
     <div class="uk-grid">
         <div class="uk-width-1-3">
-            {{ vm.prefectureName }} : {{ vm.prefectureEnName }}
+            {{ vm.prefectureName }}  {{ vm.prefectureEnName }}
         </div>
         <div class="content uk-width-2-3">
             <ul class="uk-list">
                 {% for collection in vm.collections %}
                     <li class="item-box uk-margin-medium">
                         <div class="uk-card uk-card-default uk-card-body">
-                            <a href="{{ path('collectionDetail', {'id': collection.id}) }}"></a>
+                            <a href="{{ path('collectionDetail', {'collectionId': collection.id}) }}"></a>
                             <p>{{ collection.name }}</p>
                         </div>
                     </li>
