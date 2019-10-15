@@ -85,7 +85,7 @@ $(function () {
     width: 900,
     backgroundColor: baseBackgroundColor, // 海域の背景色
     borderLineWidth: 0.5,
-    lineColor: basebackgroundColor,       // 枠線
+    lineColor: baseBackgroundColor,       // 枠線
     showsPrefectureName: false,           // 地図上に各県名を表示
     movesIslands: true,                   // 南西諸島の表示位置
     fontSize: 11,
